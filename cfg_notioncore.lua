@@ -53,13 +53,14 @@ defbindings("WScreen", {
         kpress("T", "ioncore.tagged_clear()"),
     }),
 
+    --[[ FIXME
     bdoc("Go to n:th screen on multihead setup."),
     kpress(META.."Shift+1", "ioncore.goto_nth_screen(0)"),
     kpress(META.."Q", "ioncore.goto_nth_screen(0)"),
     kpress(META.."Shift+2", "ioncore.goto_nth_screen(1)"),
     kpress(META.."W", "ioncore.goto_nth_screen(1)"),
     kpress(META.."Shift+3", "ioncore.goto_nth_screen(2)"),
-    kpress(META.."E", "ioncore.goto_nth_screen(2)"),
+    kpress(META.."E", "ioncore.goto_nth_screen(2)"), ]]
     
     bdoc("Go to next/previous screen on multihead setup."),
     kpress(META.."Shift+comma", "ioncore.goto_prev_screen()"),
