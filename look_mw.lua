@@ -94,8 +94,8 @@ de.defstyle("stdisp", {
     shadow_pixels = 0,
     highlight_pixels = 0,
     text_align = "left",
-    background_colour = "#000000",
-    foreground_colour = "grey",
+    foreground_colour = 'grey',
+    background_colour = "#3f3f3f",
     font = FONT,
     
     de.substyle("important", {

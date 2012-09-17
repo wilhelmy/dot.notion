@@ -5,9 +5,9 @@
 
 -- Create a statusbar
 mod_statusbar.create{
-    -- First screen, bottom left corner
+    -- First screen, top right corner
     screen=0,
-    pos='bl',
+    pos='tr',
     -- Set this to true if you want a full-width statusbar
     fullsize=false,
     -- Swallow systray windows
@@ -36,7 +36,7 @@ mod_statusbar.create{
     -- right, respectively, and %systray is a placeholder for system tray
     -- windows and icons.
     --
-    template="[ %date || load: %load ] %filler%systray",
+    template="%systray%filler%load | %date",
     --template="[ %date || load:% %>load || mail:% %>mail_new/%>mail_total ] %filler%systray",
     --template="[ %date || load: %05load_1min || mail: %02mail_new/%02mail_total ] %filler%systray",
 }
@@ -48,7 +48,7 @@ mod_statusbar.launch_statusd{
     -- Date meter
     date={
         -- ISO-8601 date format with additional abbreviated day name
-        date_format='%a %Y-%m-%d %H:%M',
+        date_format='%d.%m %H:%M',
         -- Finnish etc. date format
         --date_format='%a %d.%m.%Y %H:%M',
         -- Locale date format (usually shows seconds, which would require
