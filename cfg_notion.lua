@@ -16,8 +16,8 @@
 -- Set default modifiers. Alt should usually be mapped to Mod1 on
 -- XFree86-based systems. The flying window keys are probably Mod3
 -- or Mod4; see the output of 'xmodmap'.
---META="Mod1+"
---ALTMETA=""
+META="Mod4+"
+ALTMETA="Mod4+Shift+"
 
 -- Terminal emulator
 XTERM="urxvtc"

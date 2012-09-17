@@ -123,7 +123,7 @@ defbindings("WClientWin", {
 
 defbindings("WGroupCW", {
     bdoc("Toggle client window group full-screen mode"),
-    kpress_wait(META.."Return", "WGroup.set_fullscreen(_, 'toggle')"),
+    kpress_wait(META.."F", "WGroup.set_fullscreen(_, 'toggle')"),
 })
 
 
@@ -139,37 +139,20 @@ defbindings("WMPlex", {
 
 -- Frames for transient windows ignore this bindmap
 defbindings("WMPlex.toplevel", {
+    bdoc("Query for command line to execute."),
+    kpress(META.."P", "mod_query.exec_on_merr(_, 'dmenu_run')"),
+
     bdoc("Toggle tag of current object."),
     kpress(META.."T", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
 
     bdoc("Lock screen"),
-    kpress(META.."L", "notioncore.exec_on(_, notioncore.lookup_script('notion-lock'))"),
+    kpress(ALTMETA.."L", "notioncore.exec_on(_, notioncore.lookup_script('notion-lock'))"),
     
-    bdoc("Query for manual page to be displayed."),
-    kpress(ALTMETA.."F1", "mod_query.query_man(_, ':man')"),
-
-    bdoc("Show the Notion manual page."),
-    kpress(META.."F1", "ioncore.exec_on(_, ':man notion')"),
-
     bdoc("Run a terminal emulator."),
-    kpress(ALTMETA.."F2", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
-    
-    bdoc("Query for command line to execute."),
-    kpress(ALTMETA.."F3", "mod_query.query_exec(_)"),
+    kpress(ALTMETA.."Return", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
 
     bdoc("Query for Lua code to execute."),
-    kpress(META.."F3", "mod_query.query_lua(_)"),
-
-    bdoc("Query for host to connect to with SSH."),
-    kpress(ALTMETA.."F4", "mod_query.query_ssh(_, ':ssh')"),
-
-    bdoc("Query for file to edit."),
-    kpress(ALTMETA.."F5", 
-           "mod_query.query_editfile(_, 'run-mailcap --action=edit')"),
-
-    bdoc("Query for file to view."),
-    kpress(ALTMETA.."F6", 
-           "mod_query.query_runfile(_, 'run-mailcap --action=view')"),
+    kpress(ALTMETA.."F3", "mod_query.query_lua(_)"),
 
     bdoc("Query for workspace to go to or create a new one."),
     kpress(ALTMETA.."F9", "mod_query.query_workspace(_)"),
