@@ -33,14 +33,14 @@ defbindings("WEdln", {
     kpress("Control+H", "WEdln.backspace(_)"),
     
     bdoc("Delete one word forward/backward."),
-    kpress("Control+W", "WEdln.kill_word(_)"),
-    kpress("Control+O", "WEdln.bkill_word(_)"),
+    kpress("Control+W", "WEdln.bkill_word(_)"),
+    kpress("Control+D", "WEdln.kill_word(_)"),
 
     bdoc("Delete to end of line."),
-    kpress("Control+J", "WEdln.kill_to_eol(_)"),
-    
-    bdoc("Delete the whole line."),
-    kpress("Control+Y", "WEdln.kill_line(_)"),
+    kpress("Control+K", "WEdln.kill_to_eol(_)"),
+
+    bdoc("Delete to beginning of line."),
+    kpress("Control+U", "WEdln.kill_to_bol(_)"),
     
     bdoc("Transpose characters."),
     kpress("Control+T", "WEdln.transpose_chars(_)"),
@@ -55,7 +55,8 @@ defbindings("WEdln", {
 
     bdoc("Paste from the clipboard."),
     mclick("Button2", "WEdln.paste(_)"),
-    submap("Control+K", {
+    kpress("Shift+Insert", "WEdln.paste(_)"),
+    --[[submap("Control+K", {
         kpress("C", "WEdln.paste(_)"),
         
         bdoc("Set mark/begin selection."),
@@ -72,7 +73,7 @@ defbindings("WEdln", {
 
         --bdoc("Transpose words."),
         --kpress("T", "WEdln.transpose_words(_)"),
-    }),
+    }),]]
 
     bdoc("Try to complete the entered text or cycle through completions."),
     kpress("Tab", "WEdln.complete(_, 'next', 'normal')"), 
@@ -98,8 +99,6 @@ defbindings("WInput", {
     kpress("Control+C", "WInput.cancel(_)"),
     
     bdoc("Scroll the message or completions up/down."),
-    kpress("Control+U", "WInput.scrollup(_)"),
-    kpress("Control+V", "WInput.scrolldown(_)"),
     kpress("Page_Up", "WInput.scrollup(_)"),
     kpress("Page_Down", "WInput.scrolldown(_)"),
 })
