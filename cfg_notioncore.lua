@@ -32,6 +32,9 @@ defbindings("WScreen", {
     kpress(META.."8", "WScreen.switch_nth(_, 7)"),
     kpress(META.."9", "WScreen.switch_nth(_, 8)"),
     kpress(META.."0", "WScreen.switch_nth(_, 9)"),
+
+    bdoc("Go to first object on activity/urgency list."),
+    kpress(META.."F1", "ioncore.goto_activity()"),
     
     bdoc("Switch to next/previous object within current screen."),
     kpress(META.."comma", "WScreen.switch_prev(_)"),
@@ -46,8 +49,8 @@ defbindings("WScreen", {
         --bdoc("Go to previous active object."),
         --kpress("K", "ioncore.goto_previous()"),
         
-        --bdoc("Go to first object on activity/urgency list."),
-        --kpress("I", "ioncore.goto_activity()"),
+        bdoc("Go to first object on activity/urgency list."),
+        kpress("I", "ioncore.goto_activity()"),
         
         bdoc("Clear all tags."),
         kpress("T", "ioncore.tagged_clear()"),
@@ -111,7 +114,7 @@ defbindings("WClientWin", {
        kpress_wait(META.."L", "WClientWin.nudge(_)"),
 
        bdoc("Kill client owning the client window."),
-       kpress("C", "WClientWin.kill(_)"),
+       kpress("Control+C", "WClientWin.kill(_)"),
        
        bdoc("Send next key press to the client window. "..
             "Some programs may not allow this by default."),
