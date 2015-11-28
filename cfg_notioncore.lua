@@ -222,6 +222,15 @@ defbindings("WFrame", {
 defbindings("WFrame.toplevel", {
     bdoc("Query for a client window to attach."),
     kpress(META.."A", "mod_query.query_attachclient(_)"),
+
+    -- these are inspired by OSX
+    bdoc("Switch to next/previous object within the frame."),
+    kpress(META.."bracketright", "WFrame.switch_next(_)"),
+    kpress(META.."bracketleft", "WFrame.switch_prev(_)"),
+
+    bdoc("Move current object within the frame left/right."),
+    kpress(ALTMETA.."bracketright", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
+    kpress(ALTMETA.."bracketleft", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
     
     submap(META.."K", {
         -- Display tab numbers when modifiers are released
@@ -238,6 +247,16 @@ defbindings("WFrame.toplevel", {
         kpress("8", "WFrame.switch_nth(_, 7)"),
         kpress("9", "WFrame.switch_nth(_, 8)"),
         kpress("0", "WFrame.switch_nth(_, 9)"),
+        kpress("Shift+1", "WFrame.switch_nth(_, 10)"),
+        kpress("Shift+2", "WFrame.switch_nth(_, 11)"),
+        kpress("Shift+3", "WFrame.switch_nth(_, 12)"),
+        kpress("Shift+4", "WFrame.switch_nth(_, 13)"),
+        kpress("Shift+5", "WFrame.switch_nth(_, 14)"),
+        kpress("Shift+6", "WFrame.switch_nth(_, 15)"),
+        kpress("Shift+7", "WFrame.switch_nth(_, 16)"),
+        kpress("Shift+8", "WFrame.switch_nth(_, 17)"),
+        kpress("Shift+9", "WFrame.switch_nth(_, 18)"),
+        kpress("Shift+0", "WFrame.switch_nth(_, 19)"),
         
         bdoc("Switch to next/previous object within the frame."),
         kpress("N", "WFrame.switch_next(_)"),
