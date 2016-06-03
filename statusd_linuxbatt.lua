@@ -15,34 +15,31 @@
 
 local defaults={
         update_interval=15*1000,
-        bat=0,
+	bat=0,
         important_threshold=30,
         critical_threshold=10,
 }
 local settings=table.join(statusd.get_config("linuxbatt"), defaults)
 
-function linuxbatt_do_find_capacity()
-        local f=io.open('/proc/acpi/battery/BAT'.. settings.bat ..'/info')
-        local infofile=f:read('*a')
-        f:close()
-        local i, j, capacity = string.find(infofile, 'last full capacity:%s*(%d+) .*')
-        return capacity
+local function readfile(fname)
+	local fname = table.concat{"/sys/class/power_supply/BAT",tostring(settings.bat),"/",fname}
+	local fd=io.open(fname)
+	local r=fd:read("*a")
+	fd:close()
+	return r
 end
 
-local capacity = linuxbatt_do_find_capacity()
 
 function get_linuxbatt()
 	
-        local f=io.open('/proc/acpi/battery/BAT'.. settings.bat ..'/state')
-	local statefile=f:read('*a')
-	f:close()
-        local i, j, remaining = string.find(statefile, 'remaining capacity:%s*(%d+) .*')
-        local percent = math.floor( remaining * 100 / capacity )
+	local capacity = readfile('energy_full')
+	local remaining = readfile('energy_now')
+	local statename = readfile('status')
+        local percent = math.floor(remaining * 100 / capacity)
 
-        local i, j, statename = string.find(statefile, 'charging state:%s*(%a+).*')
-        if statename == "charging" then
+        if string.find(statename, "Charging") ~= nil then
                 return percent, "+"
-        elseif statename == "discharging" then
+        elseif string.find(statename, "Discharging") ~= nil then
                 return percent, "-"
         else
                 return percent, " "
