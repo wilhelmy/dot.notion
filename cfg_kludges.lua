@@ -31,8 +31,8 @@ defwinprop{
 defwinprop{
     is_dockapp = true,
     statusbar = "systray",
-    max_size = { w = 64, h = 64},
-    min_size = { w = 64, h = 64},
+    --max_size = { w = 64, h = 64},
+    --min_size = { w = 64, h = 64},
 }
 
 -- Make an exception for Docker, which sets correct size hints.
@@ -64,12 +64,29 @@ defwinprop{
 --]]
 
 
+defwinprop {
+    class = "Pidgin",
+    role = "buddy_list",
+    target = "Pidgin-buddylist",
+}
+
+defwinprop {
+    class = "Pidgin",
+    -- role = "conversation",
+    target = "Pidgin-main",
+}
+
+defwinprop {
+    class = "Firefox",
+    role = "browser",
+    target = "browser",
+}
 
 -- Define some additional title shortening rules to use when the full
 -- title doesn't fit in the available space. The first-defined matching 
 -- rule that succeeds in making the title short enough is used.
-ioncore.defshortening("(.*) - Mozilla(<[0-9]+>)", "$1$2$|$1$<...$2")
-ioncore.defshortening("(.*) - Mozilla", "$1$|$1$<...")
+ioncore.defshortening("(.*) - Mozilla( Firefox)?(<[0-9]+>)", "$1$2$|$1$<...$2")
+ioncore.defshortening("(.*) - Mozilla( Firefox)?", "$1$|$1$<...")
 ioncore.defshortening("XMMS - (.*)", "$1$|...$>$1")
 ioncore.defshortening("[^:]+: (.*)(<[0-9]+>)", "$1$2$|$1$<...$2")
 ioncore.defshortening("[^:]+: (.*)", "$1$|$1$<...")
