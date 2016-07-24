@@ -3,15 +3,7 @@
 
 #unclutter -idle 1 &
 
-# make caps another super key
-# make <>| a compose key
-setxkbmap us \
-          -option caps:super \
-          -option compose:102 \
-          -option lv3:ralt_switch \
-          -option terminate:ctrl_alt_bksp \
-          -variant altgr-intl
-
+source ~/.notion/keyboard.sh
 keychain -q
 source ~/.keychain/$(hostname)-sh
 source ~/.keychain/$(hostname)-sh-gpg
