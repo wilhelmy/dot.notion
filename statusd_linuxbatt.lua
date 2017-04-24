@@ -24,6 +24,7 @@ local settings=table.join(statusd.get_config("linuxbatt"), defaults)
 local function readfile(fname)
 	local fname = table.concat{"/sys/class/power_supply/BAT",tostring(settings.bat),"/",fname}
 	local fd=io.open(fname)
+	if not fd then return nil end
 	local r=fd:read("*a")
 	fd:close()
 	return r
@@ -32,9 +33,16 @@ end
 
 function get_linuxbatt()
 	
-	local capacity = readfile('energy_full')
-	local remaining = readfile('energy_now')
+	--local capacity = readfile('energy_full')
+	local capacity = readfile('charge_full')
+	--local remaining = readfile('energy_now')
+	local remaining = readfile('charge_now')
 	local statename = readfile('status')
+
+	if capacity == nil or remaining == nil or statename == nil then
+		return 0, "No battery"
+	end
+
         local percent = math.floor(remaining * 100 / capacity)
 
         if string.find(statename, "Charging") ~= nil then
