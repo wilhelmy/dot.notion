@@ -76,7 +76,7 @@ defbindings("WScreen", {
     
     bdoc("Display the main menu."),
     kpress(ALTMETA.."F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
-    --kpress(ALTMETA.."F12", "mod_menu.menu(_, _sub, 'mainmenu', {big=true})"),
+    kpress(META.."F12", "mod_menu.menu(_, _sub, 'mainmenu', {big=true})"),
     mpress("Button3", "mod_menu.pmenu(_, _sub, 'mainmenu')"),
     
     bdoc("Display the window list menu."),
@@ -99,6 +99,10 @@ defbindings("WScreen", {
         kpress("AnyModifier+R", "WRegion.rqorder(_chld, 'front')",
                "_chld:non-nil"),
     }),
+
+    bdoc("Move workspace left/right"),
+    kpress(ALTMETA.."backslash", "_.inc_index(_, _sub)"),
+    kpress(ALTMETA.."apostrophe", "_.dec_index(_, _sub)"),
 
 })
 
@@ -143,6 +147,9 @@ defbindings("WMPlex", {
 
 -- Frames for transient windows ignore this bindmap
 defbindings("WMPlex.toplevel", {
+    bdoc("Hackfix for keyboard layout resets since capslock is the main modifier key"),
+    kpress("Caps_Lock", "mod_query.exec_on_merr(_, 'sh ~/.notion/keyboard.sh')"),
+
     bdoc("Query for command line to execute."),
     kpress(META.."P", "mod_query.exec_on_merr(_, 'dmenu_run')"),
 
@@ -262,6 +269,7 @@ defbindings("WFrame.toplevel", {
         kpress("N", "WFrame.switch_next(_)"),
         kpress("P", "WFrame.switch_prev(_)"),
         
+	-- same as META.."["/"]"
         bdoc("Move current object within the frame left/right."),
         kpress("comma", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
         kpress("period", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
@@ -376,6 +384,7 @@ defctxmenu("WFrame", "Frame", {
     menuentry("Attach tagged", "ioncore.tagged_attach(_)", { priority = 0 }),
     menuentry("Clear tags",    "ioncore.tagged_clear()", { priority = 0 }),
     menuentry("Window info",   "mod_query.show_tree(_, _sub)", { priority = 0 }),
+    menuentry("Rename frame",  "mod_query.query_renameframe(_)", { priority = 0 }),
 })
 
 

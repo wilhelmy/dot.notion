@@ -9,7 +9,7 @@ mod_statusbar.create{
     screen=0,
     pos='tr',
     -- Set this to true if you want a full-width statusbar
-    fullsize=false,
+    fullsize=true,
     -- Swallow systray windows
     systray=true,
 
@@ -36,7 +36,8 @@ mod_statusbar.create{
     -- right, respectively, and %systray is a placeholder for system tray
     -- windows and icons.
     --
-    template="%systray%filler%linuxbatt%linuxbatt_state | %load | %date",
+    --template="%bla%systray%filler%linuxbatt%linuxbatt_state | %load | %date",
+    template="%systray%filler%linuxbatt%linuxbatt_state %linuxbatt2%linuxbatt2_state | %load | %date",
     --template="[ %date || load:% %>load || mail:% %>mail_new/%>mail_total ] %filler%systray",
     --template="[ %date || load: %05load_1min || mail: %02mail_new/%02mail_total ] %filler%systray",
 }

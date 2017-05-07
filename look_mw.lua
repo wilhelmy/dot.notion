@@ -4,7 +4,8 @@ if not gr.select_engine("de") then return end
 
 de.reset()
 
-local FONT = "-*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*"
+--local FONT = "-*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*"
+local FONT = "-*-magic-medium-r-*-*-12-*-*-*-*-*-*-*"
 
 de.defstyle("*", {
     shadow_colour = "black",

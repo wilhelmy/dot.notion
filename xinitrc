@@ -3,12 +3,14 @@
 
 #unclutter -idle 1 &
 
-source ~/.notion/keyboard.sh
-keychain -q
-source ~/.keychain/$(hostname)-sh
-source ~/.keychain/$(hostname)-sh-gpg
+echo "$PATH" | grep -q ~/bin || export PATH=~/bin:"$PATH"
 
-( sleep 5; exec ~/.bin/trayion ) &
+f=~/.notion/keyboard.sh; test -f $f && source $f;
+keychain -q
+f=~/.keychain/$(hostname)-sh; test -f $f && source $f;
+f=~/.keychain/$(hostname)-sh-gpg; test -f $f && source $f;
+
+#( sleep 5; exec ~/.bin/trayion ) &
 nm-applet &
 
 for x in ~/.ssh/id_*; do
@@ -20,5 +22,6 @@ done
 #/usr/bin/ssh-add ~/.ssh/id_rsa_old
 #/usr/bin/ssh-add ~/.ssh/id_hack
 #/usr/bin/ssh-add ~/.ssh/id_ecdsa
-
-exec notion
+export KDEWM=/usr/bin/notion
+exec startkde
+#exec notion

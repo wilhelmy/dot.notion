@@ -83,7 +83,7 @@ dopath("mod_tiling")
 dopath("mod_statusbar")
 --dopath("mod_dock")
 dopath("mod_sp")
---dopath("mod_notionflux")
+dopath("mod_notionflux")
 dopath("mod_xrandr")
 
 --
@@ -101,3 +101,11 @@ dopath("mod_xrandr")
 --    kpress(META.."M", "mod_menu.menu(_, _sub, 'ctxmenu')"),
 --})
 
+function ls(scope)
+	local t={}
+	for k,v in pairs(scope) do
+		table.insert(t,k)
+		table.insert(t," ")
+	end
+	return table.concat(t)
+end
