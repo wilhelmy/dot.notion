@@ -20,7 +20,8 @@ META="Mod4+"
 ALTMETA="Mod4+Shift+"
 
 -- Terminal emulator
-XTERM="urxvtcd"
+--XTERM="urxvtcd" -- urxvtd crashes sometimes, killing all terminal windows :'(
+XTERM="urxvt"
 
 -- Some basic settings
 ioncore.set{
