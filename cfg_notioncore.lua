@@ -145,13 +145,8 @@ defbindings("WMPlex", {
     kpress_wait(META.."C", "WRegion.rqclose_propagate(_, _sub)"),
 })
 
-local _home = os.getenv("HOME")
-
 -- Frames for transient windows ignore this bindmap
 defbindings("WMPlex.toplevel", {
-    bdoc("Hackfix for keyboard layout resets since capslock is the main modifier key"),
-    kpress("Caps_Lock", "mod_query.exec_on_merr(_, string.format('sh %s/.notion/keyboard.sh', _home))"),
-
     bdoc("Query for command line to execute."),
     kpress(META.."P", "mod_query.exec_on_merr(_, 'dmenu_run')"),
 
