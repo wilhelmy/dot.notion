@@ -23,8 +23,6 @@ done
 #/usr/bin/ssh-add ~/.ssh/id_rsa_old
 #/usr/bin/ssh-add ~/.ssh/id_hack
 #/usr/bin/ssh-add ~/.ssh/id_ecdsa
-#export KDEWM=/usr/bin/notion
-#exec startkde
 
 inputplug -c ~/.notion/inputplug.sh
 emacs --daemon &
