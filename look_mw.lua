@@ -20,6 +20,11 @@ de.defstyle("*", {
     text_align = "center",
 })
 
+local boring = "#300a00";
+--local boringer = "#200500";
+local boringer = "#150500";
+local interesting = "#002a4f";
+
 de.defstyle("frame", {
     shadow_colour = "black",
     highlight_colour = "black",
@@ -42,25 +47,25 @@ de.defstyle("tab", {
     de.substyle("active-selected", {
         shadow_colour = "black",
         highlight_colour = "black",
-        background_colour = "#3f3f3f",
-        foreground_colour = "#bfbfbf",
+        background_colour = interesting,
+        foreground_colour = "#cfcfcf",
     }),
     de.substyle("active-unselected", {
         shadow_colour = "black",
         highlight_colour = "black",
-        background_colour = "#0f1f4f",
+        background_colour = boring,
         foreground_colour = "#9f9f9f",
     }),
     de.substyle("inactive-selected", {
         shadow_colour = "black",
         highlight_colour = "black",
-        background_colour = "#1f2f4f",
-        foreground_colour = "#bfbfbf",
+        background_colour = boring,
+        foreground_colour = "#9f9f9f",
     }),
     de.substyle("inactive-unselected", {
         shadow_colour = "black",
         highlight_colour = "black",
-        background_colour = "#0f1f4f",
+        background_colour = boringer,
         foreground_colour = "#9f9f9f",
     }),
     text_align = "center",
@@ -69,7 +74,7 @@ de.defstyle("tab", {
 de.defstyle("input", {
     shadow_colour = "black",
     highlight_colour = "black",
-    background_colour = "#3f3f3f",
+    background_colour = boring,
     foreground_colour = "white",
     padding_pixels = 1,
     highlight_pixels = 0,
@@ -77,7 +82,7 @@ de.defstyle("input", {
     border_style = "elevated",
     de.substyle("*-cursor", {
         background_colour = "white",
-        foreground_colour = "#3f3f3f",
+        foreground_colour = boring,
     }),
     de.substyle("*-selection", {
         background_colour = "black",
@@ -96,9 +101,9 @@ de.defstyle("stdisp", {
     highlight_pixels = 0,
     text_align = "left",
     foreground_colour = 'grey',
-    background_colour = "#3f3f3f",
+    background_colour = boringer,
     font = FONT,
-    
+
     de.substyle("important", {
         foreground_colour = "green",
     }),
