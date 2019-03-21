@@ -11,7 +11,7 @@ keychain -q
 f=~/.keychain/$(hostname)-sh; test -f $f && source $f;
 f=~/.keychain/$(hostname)-sh-gpg; test -f $f && source $f;
 
-( sleep 5; exec ~/.bin/trayion ) &
+#( sleep 5; exec ~/.bin/trayion ) &
 nm-applet &
 
 for x in ~/.ssh/id_*; do
@@ -24,6 +24,7 @@ done
 #/usr/bin/ssh-add ~/.ssh/id_hack
 #/usr/bin/ssh-add ~/.ssh/id_ecdsa
 
+#syndaemon -i 1 &
 inputplug -c ~/.notion/inputplug.sh
 emacs --daemon &
 nm-applet &
