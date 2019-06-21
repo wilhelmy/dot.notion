@@ -1,7 +1,7 @@
 --
--- Look_cleanviolet for Notion's default drawing engine. 
+-- Look_cleanviolet for Notion's default drawing engine.
 -- Based on look-clean and look-violetgrey.
--- 
+--
 
 if not gr.select_engine("de") then
     return
@@ -17,21 +17,22 @@ de.defstyle("*", {
     shadow_colour = "#eeeeee",
     background_colour = "#aaaaaa",
     foreground_colour = "#000000",
-    
+
     shadow_pixels = 1,
     highlight_pixels = 1,
     padding_pixels = 1,
     spacing = 0,
     border_style = "elevated",
-    
+
     font = "-*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*",
     text_align = "center",
 })
 
 
 de.defstyle("tab", {
+    based_on = "*",
     font = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*",
-    
+
     de.substyle("active-selected", {
         -- Violet tab
         highlight_colour = "#aaaacc",
@@ -51,6 +52,7 @@ de.defstyle("tab", {
 
 
 de.defstyle("input", {
+    based_on = "*",
     text_align = "left",
     spacing = 1,
     -- Greyish violet background
@@ -58,7 +60,7 @@ de.defstyle("input", {
     shadow_colour = "#eeeeff",
     background_colour = "#9999aa",
     foreground_colour = "#000000",
-    
+
     de.substyle("*-selection", {
         background_colour = "#777799",
         foreground_colour = "#000000",
