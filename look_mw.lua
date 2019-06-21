@@ -4,8 +4,8 @@ if not gr.select_engine("de") then return end
 
 de.reset()
 
---local FONT = "-*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*"
-local FONT = "-*-magic-medium-r-*-*-12-*-*-*-*-*-*-*"
+local FONT = "-*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*"
+--local FONT = "-*-magic-medium-r-*-*-12-*-*-*-*-*-*-*"
 
 de.defstyle("*", {
     shadow_colour = "black",
@@ -26,6 +26,7 @@ local boringer = "#150500";
 local interesting = "#002a4f";
 
 de.defstyle("frame", {
+    based_on = "*",
     shadow_colour = "black",
     highlight_colour = "black",
     padding_colour = "black",
@@ -43,6 +44,7 @@ de.defstyle("frame", {
 })
 
 de.defstyle("tab", {
+    based_on = "*",
     font = FONT,
     de.substyle("active-selected", {
         shadow_colour = "black",
@@ -72,6 +74,7 @@ de.defstyle("tab", {
 })
 
 de.defstyle("input", {
+    based_on = "*",
     shadow_colour = "black",
     highlight_colour = "black",
     background_colour = boring,
@@ -91,6 +94,7 @@ de.defstyle("input", {
 })
 
 de.defstyle("input-menu", {
+    based_on = "*",
     padding_pixels=0,
 })
 
