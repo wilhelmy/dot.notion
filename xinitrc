@@ -28,5 +28,6 @@ done
 inputplug -c ~/.notion/inputplug.sh
 emacs --daemon &
 nm-applet &
+xfce4-panel &
 
 exec notion

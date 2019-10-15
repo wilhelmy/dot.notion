@@ -67,9 +67,11 @@ defbindings("WScreen", {
     
     bdoc("Go to next/previous screen on multihead setup."),
     kpress(META.."Shift+comma", "ioncore.goto_prev_screen()"),
+    kpress(META.."Shift+period", "ioncore.goto_next_screen()"),
     kpress(META.."I", "ioncore.goto_prev_screen()"),
     kpress(META.."O", "ioncore.goto_next_screen()"),
     kpress(META.."grave", "ioncore.goto_next_screen()"),
+    kpress(META.."Shift+grave", "ioncore.goto_prev_screen()"),
     
     bdoc("Create a new workspace of chosen default type."),
     kpress(META.."F9", "ioncore.create_ws(_)"),
@@ -238,10 +240,15 @@ defbindings("WFrame.toplevel", {
     bdoc("Move current object within the frame left/right."),
     kpress(ALTMETA.."bracketright", "WFrame.inc_index(_, _sub)", "_sub:non-nil"),
     kpress(ALTMETA.."bracketleft", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
+
+    submap(META.."X", {
+	    kpress("1", "mod_query.query_exec(_)"),
+    }),
     
+    kpress(META.."K", "WFrame.set_numbers(_, 'during_grab')"),
     submap(META.."K", {
         -- Display tab numbers when modifiers are released
-        submap_wait("ioncore.tabnum.show(_)"),
+        --submap_wait("ioncore.tabnum.show(_)"),
         
         bdoc("Switch to n:th object within the frame."),
         kpress("1", "WFrame.switch_nth(_, 0)"),
@@ -370,6 +377,7 @@ defmenu("sessionmenu", {
     menuentry("Save",           "ioncore.snapshot()"),
     menuentry("Restart",        "ioncore.restart()"),
     menuentry("Restart TWM",    "ioncore.restart_other('twm')"),
+    menuentry("Restart notion/dev",    "ioncore.restart_other('/home/mw/src/notion/destdir/bin/notion')"),
     menuentry("Exit",           "ioncore.shutdown()"),
 })
 
