@@ -1,0 +1,7 @@
+.welcome_msg_displayed
+default-session*
+.*.sw?
+.hg
+/crap/
+/diag/
+/notionflux.hist
