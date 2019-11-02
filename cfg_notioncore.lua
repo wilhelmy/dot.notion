@@ -298,6 +298,13 @@ defbindings("WFrame.toplevel", {
     }),
 })
 
+-- Bindings for workspaces
+
+defbindings("WGroupWS", {
+    bdoc("Rename workspace"),
+    kpress(META.."F2", "mod_query.query_renameworkspace(nil, _)"),
+})
+
 -- Bindings for floating frames.
 
 defbindings("WFrame.floating", {
