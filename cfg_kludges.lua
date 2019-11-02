@@ -79,7 +79,45 @@ defwinprop {
 defwinprop {
     class = "Firefox",
     role = "browser",
-    target = "browser",
+    target = "www",
+}
+
+defwinprop {
+    class = "Signal",
+    role = "browser-window",
+    target = "communication",
+}
+
+defwinprop {
+    class = "Dino",
+    target = "dinokaefig",
+}
+
+defwinprop {
+    class = "Wire",
+    role = "browser-window",
+    target = "communication",
+}
+
+defwinprop {
+   class = "Emacs",
+   instance = "mail",
+   target = "emacs",
+}
+
+defwinprop {
+    instance = "urxvt-for-mosh",
+    target = "mosh",
+}
+
+defwinprop {
+    instance = "urxvt-for-log",
+    target = "root1",
+}
+
+defwinprop {
+    instance = "urxvt-for-root",
+    target = "root2",
 }
 
 -- Define some additional title shortening rules to use when the full
