@@ -1,0 +1,22 @@
+This is my configuration for the Notion window manager.
+
+Compared to Notion 4's default config, this config is oriented more closely
+towards Notion 3's keybindings. Mostly I need a quick way to install "my"
+notion on any Linux/*NIX machine I come across. I try to include related files
+in this repository to give a more complete picture of my setup in the hope that
+it will be helpful. So far, these are:
+
+ * inputplug.sh: detects laptop docking station dock/undock events by detecting
+   whether a keyboard is being plugged in because I have yet to find another
+   way to detect these events reliably. On docking, keyboard.sh and xrandr.sh
+   are run.
+
+ * keyboard.sh: (re)sets my keyboard layout, plain and simple
+
+ * xinitrc: ~/.xinitrc on my system is a symlink to this file
+
+ * xrandr.sh: takes one parameter (on or off) and configures the screens like
+   on my home setup
+
+
+Please see https://notionwm.net/ for Notion.
