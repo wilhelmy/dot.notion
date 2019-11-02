@@ -34,7 +34,7 @@ defbindings("WScreen", {
     kpress(META.."0", "WScreen.switch_nth(_, 9)"),
 
     bdoc("Go to first object on activity/urgency list."),
-    kpress(META.."F1", "ioncore.goto_activity()"),
+    kpress(META.."I", "ioncore.goto_activity()"),
     
     bdoc("Switch to next/previous object within current screen."),
     kpress(META.."comma", "WScreen.switch_prev(_)"),
@@ -68,8 +68,6 @@ defbindings("WScreen", {
     bdoc("Go to next/previous screen on multihead setup."),
     kpress(META.."Shift+comma", "ioncore.goto_prev_screen()"),
     kpress(META.."Shift+period", "ioncore.goto_next_screen()"),
-    kpress(META.."I", "ioncore.goto_prev_screen()"),
-    kpress(META.."O", "ioncore.goto_next_screen()"),
     kpress(META.."grave", "ioncore.goto_next_screen()"),
     kpress(META.."Shift+grave", "ioncore.goto_prev_screen()"),
     
@@ -77,11 +75,12 @@ defbindings("WScreen", {
     kpress(META.."F9", "ioncore.create_ws(_)"),
     
     bdoc("Display the main menu."),
-    kpress(ALTMETA.."F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
-    kpress(META.."F12", "mod_menu.menu(_, _sub, 'mainmenu', {big=true})"),
+    kpress(META.."F12", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
+    kpress(META.."Shift+M", "mod_query.query_menu(_, _sub, 'mainmenu', 'Main menu:')"),
     mpress("Button3", "mod_menu.pmenu(_, _sub, 'mainmenu')"),
     
     bdoc("Display the window list menu."),
+    kpress(META.."F11", "mod_menu.grabmenu(_, _sub, 'windowlist')"),
     mpress("Button2", "mod_menu.pmenu(_, _sub, 'windowlist')"),
 
     bdoc("Forward-circulate focus."),
@@ -162,19 +161,19 @@ defbindings("WMPlex.toplevel", {
     kpress(ALTMETA.."Return", "mod_query.exec_on_merr(_, XTERM or 'xterm')"),
 
     bdoc("Create an emacs frame"),
-    kpress(ALTMETA.."E", "mod_query.exec_on_merr(_, EMACSCLIENT or 'emacsclient -c')"),
+    kpress(META.."E", "mod_query.exec_on_merr(_, EMACSCLIENT or 'emacsclient -c')"),
 
     bdoc("Query for manual page to be displayed."),
-    kpress(ALTMETA.."F1", "mod_query.query_man(_, ':man')"),
+    kpress(META.."F1", "mod_query.query_man(_, ':man')"),
 
     bdoc("Query for Lua code to execute."),
-    kpress(ALTMETA.."F3", "mod_query.query_lua(_)"),
+    kpress(META.."F3", "mod_query.query_lua(_)"),
 
     bdoc("Query for host to SSH to."),
-    kpress(META.."F4", "mod_query.query_ssh(_, ':ssh')"),
+    kpress(ALTMETA.."F4", "mod_query.query_ssh(_, ':ssh')"),
 
     bdoc("Query for host to connect to via mosh."),
-    kpress(ALTMETA.."F4", "mod_query.query_ssh(_, ':mosh')"),
+    kpress(META.."F4", "mod_query.query_ssh(_, ':mosh')"),
 
     bdoc("Query for workspace to go to or create a new one."),
     kpress(ALTMETA.."F9", "mod_query.query_workspace(_)"),
