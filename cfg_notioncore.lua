@@ -164,6 +164,9 @@ defbindings("WMPlex.toplevel", {
     bdoc("Create an emacs frame"),
     kpress(ALTMETA.."E", "mod_query.exec_on_merr(_, EMACSCLIENT or 'emacsclient -c')"),
 
+    bdoc("Query for manual page to be displayed."),
+    kpress(ALTMETA.."F1", "mod_query.query_man(_, ':man')"),
+
     bdoc("Query for Lua code to execute."),
     kpress(ALTMETA.."F3", "mod_query.query_lua(_)"),
 
