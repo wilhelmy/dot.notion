@@ -167,6 +167,12 @@ defbindings("WMPlex.toplevel", {
     bdoc("Query for Lua code to execute."),
     kpress(ALTMETA.."F3", "mod_query.query_lua(_)"),
 
+    bdoc("Query for host to SSH to."),
+    kpress(META.."F4", "mod_query.query_ssh(_, ':ssh')"),
+
+    bdoc("Query for host to connect to via mosh."),
+    kpress(ALTMETA.."F4", "mod_query.query_ssh(_, ':mosh')"),
+
     bdoc("Query for workspace to go to or create a new one."),
     kpress(ALTMETA.."F9", "mod_query.query_workspace(_)"),
     
