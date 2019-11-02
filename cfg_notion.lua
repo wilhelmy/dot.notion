@@ -41,6 +41,27 @@ ioncore.set{
     -- changing focus. Enabled by default.
     --warp=true,
     
+    -- Margin to use when warping the cursor (in pixels),
+    -- to inset from the edge of the frame.
+    --warp_margin=5,
+
+    -- Placement to use when positioning the cursor in the frame
+    -- (as a factor from 0-1).
+    -- Where an x,y value:
+    -- * (0.0, 0.0) for top-left.
+    -- * (1.0, 1.0) for bottom-right.
+    -- * (0.5, 0.5) for the center of the frame.
+    warp_factor_x=0.5,
+    warp_factor_y=0.5,
+
+    -- Float window placement method:
+    -- one of 'udlr' (up down left right), 'lrud' (left right up down), 'pointer' or 'random'.
+    --float_placement_method="udlr"
+
+    -- Float non-transient dialog type windows.
+    -- Can be useful for applications that try to place their own dialog windows.
+    window_dialog_float=true,
+
     -- Switch frames to display newly mapped windows
     --switchto=true,
     
@@ -61,6 +82,27 @@ ioncore.set{
     -- Mouse focus mode; set to "sloppy" if you want the focus to follow the 
     -- mouse, and to "disabled" otherwise.
     --mousefocus="sloppy",
+  
+    -- Controls Notion's reaction to stacking requests sent by clients. Set to
+    -- "ignore" to ignore these requests, and to "activate" to set the activity
+    -- flag on a window that requests to be stacked "Above".
+    window_stacking_request="activate",
+
+    -- Time (in ms) that a window has to be focussed in order to be added to the
+    -- focus list. Set this to <=0 (or comment it out) to disable the logic, and
+    -- update the focus list immediately.
+    focuslist_insert_delay=60000,
+
+    -- If enabled, activity notifiers are displayed on ALL the screens, not just
+    -- the screen that contains the window producing the notification. This is
+    -- only relevant on multi-head setups. By default this is disabled.
+    activity_notification_on_all_screens=true,
+
+    -- If enabled, a workspace indicator comes up at the bottom-left of the
+    -- screen when a new workspace is selected. This indicator stays active for
+    -- only as long as indicated by this variable (in ms). Timeout values <=0
+    -- disable the indicator altogether. This is disabled by default.
+    workspace_indicator_timeout=1000,
 }
 
 --
